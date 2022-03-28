@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  margin: 0 20px;
+  margin: 10px 30px;
   color: white;
   font-size: 20px;
 `;
