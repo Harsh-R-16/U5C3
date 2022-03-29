@@ -6,6 +6,9 @@ export default function Register() {
     localStorage.setItem("name", e.target.elements[0].value);
     localStorage.setItem("email", e.target.elements[1].value);
     localStorage.setItem("password", e.target.elements[2].value);
+    localStorage.setItem("username", e.target.elements[3].value);
+    localStorage.setItem("mobile", e.target.elements[4].value);
+    localStorage.setItem("description", e.target.elements[5].value);
     for (let i = 0; i < 6; i++) e.target.elements[i].value = "";
     let options = {
       name: e.target.elements[0].value,
@@ -29,6 +32,7 @@ export default function Register() {
           alert("Registration failed, user already exists. Please try again");
         } else {
           alert("Registration Success");
+          localStorage.setItem("token", res.token);
         }
       });
   };

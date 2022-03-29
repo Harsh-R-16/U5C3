@@ -5,8 +5,8 @@ export default function Login() {
     e.preventDefault();
 
     let options = {
-      username: e.target.elements[1].value,
       password: e.target.elements[2].value,
+      username: e.target.elements[1].value,
     };
     fetch("https://masai-api-mocker.herokuapp.com/auth/login", {
       method: "POST",
@@ -21,7 +21,9 @@ export default function Login() {
         if (res.error) {
           alert(res.message, "Please try again");
         } else {
+          console.log(options);
           alert("Login Success", res.token);
+          localStorage.setItem("token", res.token);
         }
       })
       .catch((err) => {
@@ -37,13 +39,19 @@ export default function Login() {
       <form action="" onSubmit={formHandler}>
         <div>
           <label htmlFor="name">Enter Your Name:</label>
-          <input type="text" id="name" placeholder="enter your name..." />
+          <input
+            type="text"
+            id="name"
+            required
+            placeholder="enter your name..."
+          />
         </div>
         <div>
           <label htmlFor="username">Enter Your Username:</label>
           <input
             type="text"
             id="username"
+            required
             placeholder="enter your username..."
           />
         </div>
@@ -52,6 +60,7 @@ export default function Login() {
           <input
             type="password"
             id="password"
+            required
             placeholder="enter your password..."
           />
         </div>
