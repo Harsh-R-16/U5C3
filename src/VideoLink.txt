@@ -1,5 +1,5 @@
 Drive Link of Video:
 
-products data used. 
+products data used from data.js file. 
 
-https://drive.google.com/file/d/1LuCsr_a2XFKamqsB3PuyQylyLuqDL8rY/view?usp=sharing
+https://drive.google.com/file/d/19q0m8oxVmy6X4a9oKbH0SMhktbXO-bjk/view?usp=sharing
