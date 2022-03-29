@@ -1,12 +1,36 @@
 import React from "react";
 
-export default function Login() {
+export default function Register() {
   const formHandler = (e) => {
     e.preventDefault();
     localStorage.setItem("name", e.target.elements[0].value);
     localStorage.setItem("email", e.target.elements[1].value);
     localStorage.setItem("password", e.target.elements[2].value);
     for (let i = 0; i < 6; i++) e.target.elements[i].value = "";
+    let options = {
+      name: e.target.elements[0].value,
+      email: e.target.elements[1].value,
+      password: e.target.elements[2].value,
+      username: e.target.elements[3].value,
+      mobile: e.target.elements[4].value,
+      description: e.target.elements[5].value,
+    };
+    fetch("https://masai-api-mocker.herokuapp.com/auth/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(options),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res);
+        if (res.error) {
+          alert("Registration failed, user already exists. Please try again");
+        } else {
+          alert("Registration Success");
+        }
+      });
   };
   return (
     <section id="login">
